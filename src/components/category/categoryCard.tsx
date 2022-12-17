@@ -21,7 +21,7 @@ export default function CategoryCard() {
               _hover={{
                 background: "#F49B3F",
                 boxShadow: "10px 20px 40px rgba(97, 49, 0, 0.2)",
-                color: "white !important",
+                color: "white",
               }}
             >
               <Box
