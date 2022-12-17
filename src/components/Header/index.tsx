@@ -66,32 +66,47 @@ export default function Header() {
         </Box>
         <Box display="flex" gap="8px" paddingTop="127px" paddingBottom="46px">
           <Box
+            as="button"
             borderRadius="50%"
             width="48px"
             background="#EB8E78"
             height="48px"
             padding="1rem"
             color="white"
+            transition="background 0.3s ease-in"
+            _hover={{
+              background: "#db8470",
+            }}
           >
             <FaFacebookF />
           </Box>
           <Box
+            as="button"
             borderRadius="50%"
             width="48px"
             background="#EB8E78"
             height="48px"
             padding="1rem"
             color="white"
+            transition="background 0.3s ease-in"
+            _hover={{
+              background: "#db8470",
+            }}
           >
             <FaTwitter />
           </Box>
           <Box
+            as="button"
             borderRadius="50%"
             width="48px"
             background="#EB8E78"
             height="48px"
             padding="1rem"
             color="white"
+            transition="background 0.3s ease-in"
+            _hover={{
+              background: "#db8470",
+            }}
           >
             {" "}
             <FaInstagram />{" "}
