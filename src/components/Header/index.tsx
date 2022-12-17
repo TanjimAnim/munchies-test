@@ -64,7 +64,7 @@ export default function Header() {
             Buscar
           </Button>
         </Box>
-        <Box display="flex" gap="8px" marginTop="176px">
+        <Box display="flex" gap="8px" paddingTop="127px" paddingBottom="46px">
           <Box
             borderRadius="50%"
             width="48px"
@@ -105,19 +105,53 @@ export default function Header() {
           borderRadius="12px"
           top="8%"
           left="-81%"
+          zIndex={1}
         />
         <Image
           src={foodImage2.src}
           position="absolute"
           borderRadius="12px"
-          top="34%"
+          top="52%"
           left="-120%"
         />
-        <Image src={foodImage3.src} />
-        <Image src={dotImage.src} />
-        <Image src={pinImage.src} />
-        <Image src={dotImage.src} />
-        <Image src={dotImage.src} />
+        <Image
+          src={foodImage3.src}
+          position="absolute"
+          borderRadius="12px"
+          zIndex={2}
+          top="0%"
+          left="17%"
+        />
+
+        <Image
+          src={pinImage.src}
+          position="absolute"
+          top="57%"
+          left="-23%"
+          zIndex={2}
+        />
+        <Image
+          id="dot-on-pin"
+          src={dotImage.src}
+          position="absolute"
+          zIndex={2}
+          top="52%"
+          left="-12%"
+        />
+        <Image
+          src={dotImage.src}
+          position="absolute"
+          id="dot-on-food-1"
+          top="15%"
+          left="-96%"
+        />
+        <Image
+          src={dotImage.src}
+          position="absolute"
+          id="dot-on-food-2"
+          top="6%"
+          left="-96%"
+        />
       </Box>
     </Box>
   );
