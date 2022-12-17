@@ -22,7 +22,7 @@ export default function HomePage() {
       <Box
         position="absolute"
         width="1436px"
-        height="846px"
+        height="774px"
         left="672px"
         top="151px"
         backgroundImage={pattern2.src}
