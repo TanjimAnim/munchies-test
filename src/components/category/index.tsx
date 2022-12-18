@@ -3,6 +3,7 @@ import CategoryCard from "./categoryCard";
 
 //import assets
 import arrow from "../../assets/arrow.png";
+import RestaurantCard from "./restaurantCard";
 
 export default function Category() {
   return (
@@ -115,6 +116,7 @@ export default function Category() {
           </Box>
         </Box>
       </Box>
+      <RestaurantCard />
     </Box>
   );
 }
