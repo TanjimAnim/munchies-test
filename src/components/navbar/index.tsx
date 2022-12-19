@@ -1,6 +1,9 @@
 import { Box, Image, Text } from "@chakra-ui/react";
 
 //import assets
+import munchiesLogoImage from "../../assets/munchiesLogo.png";
+import searchImage from "../../assets/search.png";
+import cardImage from "../../assets/card.png";
 
 const textStyle = {
   fontStyle: "normal",
@@ -17,9 +20,10 @@ export default function Navbar() {
       paddingTop="16px"
       width="100%"
       justifyContent="space-between"
+      alignItems="center"
     >
       <Box id="munchies-logo" position="relative" zIndex={1}>
-        <Image />
+        <Image src={munchiesLogoImage.src} width="128px" />
       </Box>
       <Box
         id="menu"
@@ -29,27 +33,16 @@ export default function Navbar() {
         style={textStyle}
         alignItems="center"
       >
-        <Text>Nosotors</Text>
-        <Text>Fonditas</Text>
-        <Text>Mapa</Text>
-        <Text>Inscribirse</Text>
+        <Text>Home</Text>
+        <Text>About</Text>
+        <Text>Menu</Text>
+        <Text>Blog</Text>
+        <Text>Contact</Text>
       </Box>
       <Box id="cart" display="flex" gap="16px">
-        <Box
-          width="170px"
-          border="1px solid rgba(255, 255, 255, 0.295743)"
-          borderRadius="12px"
-          paddingX="37px"
-          paddingY="14px"
-          color="white"
-        >
-          <Text style={textStyle} textAlign="center">
-            Inicia sesion
-          </Text>
-        </Box>
-        <Box>
-          <Image />
-        </Box>
+        <Image src={searchImage.src} width="22px" height="22px" />
+
+        <Image src={cardImage.src} width="22px" height="22px" />
       </Box>
     </Box>
   );
