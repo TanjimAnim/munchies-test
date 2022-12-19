@@ -1,66 +1,62 @@
-import { Box, Image, Text } from "@chakra-ui/react";
+import { Box, Button, Image, Text, Select } from "@chakra-ui/react";
+import FoodCard from "./foodCard";
 
 export default function Menu() {
   return (
-    <>
-      <Box
-        marginTop="171px"
-        width="123px"
-        padding="15px"
-        marginLeft="21%"
-        borderRadius="8px"
-        background="#5EAE53"
-        color="white"
-        textTransform="uppercase"
-        textAlign="center"
-      >
-        Fonditas
-      </Box>
-      <Box
-        paddingTop="18px"
-        width="537px"
-        paddingBottom="51px"
-        marginLeft="20%"
-      >
-        <Text
-          fontSize="56px"
-          fontStyle="normal"
-          fontWeight={700}
-          textAlign="center"
-          color="#333333"
+    <Box background="#F7F8FA" width="100%">
+      <Text marginTop="105px" fontSize="24px" letterSpacing="-0.012em">
+        Home Kitchen
+      </Text>
+      <Box display="flex" gap="0px">
+        <Button
+          border="1px solid #F3BA00"
+          borderRadius="10px 0px 0px 10px"
+          padding="1rem"
         >
-          Los mejores menús
-        </Text>
+          All
+        </Button>
+        <Button
+          padding="1rem"
+          border="1px solid #F3BA00"
+          borderRadius="none"
+          background="transparent"
+        >
+          Button
+        </Button>
+        <Button
+          padding="1rem"
+          border="1px solid #F3BA00"
+          borderRadius="none"
+          background="transparent"
+        >
+          Free delivery
+        </Button>
+        <Button
+          padding="1rem"
+          border="1px solid #F3BA00"
+          borderRadius="none"
+          background="transparent"
+        >
+          New
+        </Button>
+        <Button
+          padding="1rem"
+          border="1px solid #F3BA00"
+          borderRadius="0px 10px 10px 0px"
+          background="transparent"
+        >
+          Coming
+        </Button>
       </Box>
-      <Box
-        display="flex"
-        justifyContent="space-around"
-        width="91%"
-        marginX="auto"
-        alignItems="center"
-        marginBottom="37px"
-      >
-        <Box>
-          <Text
-            fontSize="16px"
-            fontWeight={400}
-            color="rgba(51, 51, 51, 0.501557)"
-          >
-            Aquí están los mejores menús de la semana, y decide que vas a pedir
-          </Text>
-        </Box>
-        <Box>
-          <Text
-            color="#333333"
-            textAlign="right"
-            fontWeight={400}
-            fontSize="16px"
-            alignSelf="center"
-          >
-            Ver todas
-          </Text>
-        </Box>
+      <Box width="251px" borderRadius="10px" padding="13px 19px" marginY="40px">
+        <Select placeholder="Filters">
+          <option value="option1">Option 1</option>
+          <option value="option2">Option 2</option>
+          <option value="option3">Option 3</option>
+        </Select>
       </Box>
-    </>
+
+      <FoodCard />
+    </Box>
   );
 }

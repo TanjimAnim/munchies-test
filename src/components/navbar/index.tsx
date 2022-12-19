@@ -1,8 +1,6 @@
 import { Box, Image, Text } from "@chakra-ui/react";
 
 //import assets
-import cartImage from "../../assets/cart.png";
-import munchiesLogoImage from "../../assets/munchiesLogo.png";
 
 const textStyle = {
   fontStyle: "normal",
@@ -21,7 +19,7 @@ export default function Navbar() {
       justifyContent="space-between"
     >
       <Box id="munchies-logo" position="relative" zIndex={1}>
-        <Image src={munchiesLogoImage.src} />
+        <Image />
       </Box>
       <Box
         id="menu"
@@ -50,7 +48,7 @@ export default function Navbar() {
           </Text>
         </Box>
         <Box>
-          <Image src={cartImage.src} />
+          <Image />
         </Box>
       </Box>
     </Box>
