@@ -4,24 +4,22 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 export const munchiesApi = createApi({
   reducerPath: "munchiesApi",
   baseQuery: fetchBaseQuery({
-    baseUrl: "https://munchies-api.up.railway.app/",
-    mode: "no-cors",
+    baseUrl: "/munchies",
   }),
   endpoints: (builder) => ({
     getAllProducts: builder.query({
-      transformResponse: (a, b, c) => {
-        console.log(a, b, c);
-      },
-      transformErrorResponse: (a, b, c) => {
-        console.log(a, b, c);
-      },
       query: () => ({
         url: `products`,
         // This is the same as passing 'text'
-        responseHandler: async (response) => {
-          const res = { data: await response.json() };
-          console.log("ressss", res);
-          return res;
+        responseHandler: async (res) => {
+          if (!res.ok) {
+            return {
+              error: await res.json() 
+            }
+          }
+          return {
+            data: await res.json() 
+          };
         },
       }),
     }),
