@@ -1,172 +1,62 @@
 import { Box, Image, Input, Text, Button } from "@chakra-ui/react";
 
 //importing assets
-import foodImage1 from "../../assets/food1.png";
-import foodImage2 from "../../assets/food2.png";
-import foodImage3 from "../../assets/food3.png";
-import dotImage from "../../assets/dots.png";
-import pinImage from "../../assets/pin.png";
-
-//import icons
-import { FaFacebookF, FaTwitter, FaInstagram } from "react-icons/fa";
+import guyImage from "../../assets/cuate.png";
 
 export default function Header() {
   return (
     <Box
       id="header"
       display="flex"
-      justifyContent="space-between"
-      marginTop="90px"
-      paddingLeft="140px"
+      justifyContent="space-around"
+      paddingY="180px"
+      alignItems="center"
     >
-      <Box>
+      <Box width="534px">
+        <Text fontStyle="normal" fontSize="70px" color="white">
+          Authentic Home food in UK
+        </Text>
         <Text
+          width="441px"
           fontStyle="normal"
           fontWeight={400}
-          fontSize="50px"
-          color="#F6B76C"
-        >
-          De tu fonda favorita
-        </Text>
-        <Text
-          width="533px"
-          fontStyle="normal"
-          fontWeight={700}
-          fontSize="72px"
+          fontSize="16px"
           color="white"
+          letterSpacing="-0.012em"
         >
-          La comida que ya conoces al mejor precio
+          What2Eat is a courier service in which authentic home cook food is
+          delivered to a customer.
         </Text>
-        <Box marginY="49px" position="relative">
+        <Box marginY="49px" display="flex">
           <Input
-            placeholder="Busca tu platillo favorito"
+            placeholder="Search the food you love"
             background="white"
-            borderRadius="12px"
-            height="50px"
+            borderRadius="10px 0px 0px 10px"
+            height="58px"
             _focus={{
               outline: "none",
               border: "0",
             }}
+            width="48%"
           />
           <Button
-            position="absolute"
-            zIndex={1}
-            background="#EB8E78"
-            borderRadius="12px"
+            background="#F3BA00"
+            borderRadius="0px 10px 10px 0px"
             width="116px"
-            paddingY="14px"
-            paddingX="30px"
+            padding="19px 29px"
             color="white"
-            top="1px"
-            right="1px"
-            height="48px"
+            height="58px"
+            fontSize="16px"
+            fontWeight={600}
+            letterSpacing="-0.012em"
           >
-            Buscar
+            Search
           </Button>
         </Box>
-        <Box display="flex" gap="8px" paddingTop="127px" paddingBottom="46px">
-          <Box
-            as="button"
-            borderRadius="50%"
-            width="48px"
-            background="#EB8E78"
-            height="48px"
-            padding="1rem"
-            color="white"
-            transition="background 0.3s ease-in"
-            _hover={{
-              background: "#db8470",
-            }}
-          >
-            <FaFacebookF />
-          </Box>
-          <Box
-            as="button"
-            borderRadius="50%"
-            width="48px"
-            background="#EB8E78"
-            height="48px"
-            padding="1rem"
-            color="white"
-            transition="background 0.3s ease-in"
-            _hover={{
-              background: "#db8470",
-            }}
-          >
-            <FaTwitter />
-          </Box>
-          <Box
-            as="button"
-            borderRadius="50%"
-            width="48px"
-            background="#EB8E78"
-            height="48px"
-            padding="1rem"
-            color="white"
-            transition="background 0.3s ease-in"
-            _hover={{
-              background: "#db8470",
-            }}
-          >
-            {" "}
-            <FaInstagram />{" "}
-          </Box>
-        </Box>
       </Box>
-      <Box position="relative" width="24%" zIndex={1}>
-        <Image
-          src={foodImage1.src}
-          position="absolute"
-          borderRadius="12px"
-          top="8%"
-          left="-81%"
-          zIndex={1}
-        />
-        <Image
-          src={foodImage2.src}
-          position="absolute"
-          borderRadius="12px"
-          top="52%"
-          left="-120%"
-        />
-        <Image
-          src={foodImage3.src}
-          position="absolute"
-          borderRadius="12px"
-          zIndex={2}
-          top="0%"
-          left="17%"
-        />
-
-        <Image
-          src={pinImage.src}
-          position="absolute"
-          top="57%"
-          left="-23%"
-          zIndex={2}
-        />
-        <Image
-          id="dot-on-pin"
-          src={dotImage.src}
-          position="absolute"
-          zIndex={2}
-          top="52%"
-          left="-12%"
-        />
-        <Image
-          src={dotImage.src}
-          position="absolute"
-          id="dot-on-food-1"
-          top="15%"
-          left="-96%"
-        />
-        <Image
-          src={dotImage.src}
-          position="absolute"
-          id="dot-on-food-2"
-          top="6%"
-          left="-96%"
-        />
+      <Box>
+        {" "}
+        <Image src={guyImage.src} />
       </Box>
     </Box>
   );
