@@ -3,7 +3,7 @@ import { FoodType } from "../../../types";
 import { munchiesApi, useGetAllProductsQuery } from "../../services/products";
 
 export default function FoodCard() {
-  //const { isError, isLoading, data } = useGetAllProductsQuery("");
-  console.log(useGetAllProductsQuery(""));
+  const productsQuery = useGetAllProductsQuery("");
+  console.log(productsQuery)
   return <Box marginTop="40px"></Box>;
 }
