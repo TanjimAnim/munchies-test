@@ -5,6 +5,14 @@ const nextConfig = {
   experimental: {
     appDir: true,
   },
+  async rewrites() {
+    return [
+      {
+        source: '/munchies/:path*',
+        destination: `https://munchies-api.up.railway.app/:path*`,
+      },
+    ]
+  },
 };
 
 module.exports = nextConfig;
