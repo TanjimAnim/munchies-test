@@ -13,6 +13,6 @@ export type FoodType = {
   }[];
 };
 
-export type FoodCartType = {
-  cart: FoodType[];
+export type FoodCartType = FoodType & {
+  quantity: number;
 };
