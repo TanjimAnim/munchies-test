@@ -1,9 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
+import { foodcartSlice } from "../features/slice";
 import { munchiesApi } from "../services/products";
 
 export const store = configureStore({
   reducer: {
     [munchiesApi.reducerPath]: munchiesApi.reducer,
+    cart: foodcartSlice.reducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(munchiesApi.middleware),

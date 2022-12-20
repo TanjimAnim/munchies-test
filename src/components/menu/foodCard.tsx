@@ -2,13 +2,23 @@ import { Box, chakra, Image, Text } from "@chakra-ui/react";
 import { FoodType } from "../../../types";
 import { useGetAllProductsQuery } from "../../services/products";
 
+//redux
+import { RootState } from "../../app/store";
+import { useSelector, useDispatch } from "react-redux";
+
 //import assets
 import addToCartImage from "../../assets/add-to-cart.png";
+
+//import actions
+import { addToCart } from "../../features/slice";
 
 export default function FoodCard() {
   const FoodData = useGetAllProductsQuery("").data;
   const { isLoading, isError } = useGetAllProductsQuery("");
 
+  const cart = useSelector((state: RootState) => state.cart);
+  const dispatch = useDispatch();
+  console.log(cart);
   return (
     <Box
       marginTop="40px"
@@ -71,7 +81,7 @@ export default function FoodCard() {
                       boxShadow="0px 0px 1px rgba(0, 0, 0, 0.25)"
                       borderRadius="5px"
                     >
-                      Qty:{item.quantity_available}
+                      Qty: {item.quantity_available}
                     </Box>
                     <Box
                       padding="0px 4px"
@@ -82,7 +92,7 @@ export default function FoodCard() {
                       50-79 min
                     </Box>
                   </Box>
-                  <Box>
+                  <Box as="button" onClick={() => dispatch(addToCart(item))}>
                     <Image src={addToCartImage.src} />
                   </Box>
                 </Box>
