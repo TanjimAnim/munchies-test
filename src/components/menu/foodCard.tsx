@@ -10,15 +10,32 @@ import { useSelector, useDispatch } from "react-redux";
 import addToCartImage from "../../assets/add-to-cart.png";
 
 //import actions
-import { addToCart } from "../../features/slice";
+import { addToCart, CartState } from "../../features/slice";
+
+import { useEffect } from "react";
 
 export default function FoodCard() {
   const FoodData = useGetAllProductsQuery("").data;
+  const cart = useSelector((state: RootState) => state.cart);
   const { isLoading, isError } = useGetAllProductsQuery("");
 
-  const cart = useSelector((state: RootState) => state.cart);
   const dispatch = useDispatch();
   console.log(cart);
+  useEffect(() => {
+    function handleVisibilityChange() {
+      if (document.visibilityState === "visible") {
+        window.location.reload();
+      }
+    }
+    document.addEventListener(
+      "visibilitychange",
+      handleVisibilityChange,
+      false
+    );
+    return () => {
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
+    };
+  });
   return (
     <Box
       marginTop="40px"
