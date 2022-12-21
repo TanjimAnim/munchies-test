@@ -15,4 +15,5 @@ export type FoodType = {
 
 export type FoodCartType = FoodType & {
   quantity: number;
+  total_price: number;
 };
