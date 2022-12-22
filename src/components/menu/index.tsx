@@ -4,6 +4,28 @@ import FoodCard from "./foodCard";
 //importing assets
 import plusSignImage from "../../assets/plussign.png";
 
+const ButtonStyle = {
+  padding: "1rem",
+  border: "1px solid #F3BA00",
+  borderRadius: "0px",
+  background: "transparent",
+  borderLeft: "none",
+  transition: "background 0.3s ease-in,color 0.3s ease-in",
+};
+
+const SideButtonStyle = {
+  padding: "1rem",
+  border: "1px solid #F3BA00",
+  background: "transparent",
+  width: "100px",
+  transition: "background 0.3s ease-in,color 0.3s ease-in",
+};
+
+const HoverStyle = {
+  background: "#F3BA00 !important",
+  color: "white",
+};
+
 export default function Menu() {
   return (
     <Box background="#F7F8FA" width="100%" paddingTop="105px">
@@ -17,50 +39,26 @@ export default function Menu() {
       </Text>
       <Box display="flex" gap="0px" marginTop="16px" marginLeft="265px">
         <Button
-          border="1px solid #F3BA00"
+          style={SideButtonStyle}
           borderRadius="10px 0px 0px 10px"
-          padding="1rem"
-          width="100px"
+          _hover={HoverStyle}
         >
           All
         </Button>
-        <Button
-          padding="1rem"
-          border="1px solid #F3BA00"
-          borderRadius="none"
-          background="transparent"
-          width="100px"
-          borderLeft="none"
-        >
+        <Button style={ButtonStyle} width="100px" _hover={HoverStyle}>
           Button
         </Button>
-        <Button
-          padding="1rem"
-          border="1px solid #F3BA00"
-          borderRadius="none"
-          background="transparent"
-          width="156px"
-          borderLeft="none"
-        >
+        <Button width="156px" style={ButtonStyle} _hover={HoverStyle}>
           Free delivery
         </Button>
-        <Button
-          padding="1rem"
-          border="1px solid #F3BA00"
-          borderRadius="none"
-          background="transparent"
-          width="100px"
-          borderLeft="none"
-        >
+        <Button style={ButtonStyle} _hover={HoverStyle}>
           New
         </Button>
         <Button
-          padding="1rem"
-          border="1px solid #F3BA00"
+          style={SideButtonStyle}
           borderRadius="0px 10px 10px 0px"
-          background="transparent"
-          width="100px"
-          borderLeft="none"
+          borderLeft="none !important"
+          _hover={HoverStyle}
         >
           Coming
         </Button>
@@ -95,7 +93,7 @@ export default function Menu() {
           background="transparent"
           gap="12px"
         >
-          <Image src={plusSignImage.src} /> Load more...
+          <Image src={plusSignImage.src} alt="" /> Load more...
         </Button>
       </Box>
     </Box>
