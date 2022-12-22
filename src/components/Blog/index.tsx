@@ -30,7 +30,7 @@ const Title = () => {
 
 export default function Blog() {
   return (
-    <Box background="white">
+    <Box background="white" id="blog">
       <Box marginLeft="265px" marginTop="100px" marginBottom="28px">
         <Text fontSize="26px" letterSpacing="-0.012em">
           Our Blog

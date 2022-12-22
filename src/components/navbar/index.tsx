@@ -38,11 +38,23 @@ export default function Navbar() {
         style={textStyle}
         alignItems="center"
       >
-        <Text>Home</Text>
-        <Text>About</Text>
-        <Text>Menu</Text>
-        <Text>Blog</Text>
-        <Text>Contact</Text>
+        <Link href="/">
+          <Text>Home</Text>
+        </Link>
+        <Link href="#header">
+          <Text>About</Text>
+        </Link>
+
+        <Link href="#menu">
+          {" "}
+          <Text>Menu</Text>
+        </Link>
+        <Link href="#blog">
+          <Text>Blog</Text>
+        </Link>
+        <Link href="#contact">
+          <Text>Contact</Text>
+        </Link>
       </Box>
       <Box id="cart" display="flex" gap="16px">
         <Image src={searchImage.src} width="22px" height="22px" alt="" />

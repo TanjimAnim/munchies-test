@@ -28,7 +28,7 @@ const HoverStyle = {
 
 export default function Menu() {
   return (
-    <Box background="#F7F8FA" width="100%" paddingTop="105px">
+    <Box background="#F7F8FA" width="100%" paddingTop="105px" id="menu">
       <Text
         fontSize="24px"
         letterSpacing="-0.012em"
@@ -76,8 +76,10 @@ export default function Menu() {
           <option value="option3">Option 3</option>
         </Select>
       </Box>
+      <Box>
+        <FoodCard />
+      </Box>
 
-      <FoodCard />
       <Box
         display="flex"
         justifyContent="center"

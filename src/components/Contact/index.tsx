@@ -5,7 +5,7 @@ import FoodDeliveryImage from "../../assets/FoodDeliveryMan.png";
 
 export default function Contact() {
   return (
-    <Box background="#F7F8FA">
+    <Box background="#F7F8FA" id="contact">
       <Box
         display="flex"
         justifyContent="space-around"
