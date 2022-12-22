@@ -26,20 +26,29 @@ const Checkout = () => {
     user_phone: "",
   });
   const [totalPrice, setTotalPrice] = useState(0);
+  const [totalVat, setTotalVat] = useState(0);
 
-  //   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-  //     input[event.target.name] = event.target.value;
-  //     setInput(input);
-  //   };
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    console.log(event.target);
+    setInput({ ...input, [event.target.name]: event.target.value });
+  };
 
   useEffect(() => {
     var totalPriceArray = cart.items.map((item) => item.total_price);
+    var totalPriceWithoutVatArray = cart.items.map(
+      (item) => item.price * item.quantity
+    );
 
     var sum = 0;
+    var sumWithoutVat = 0;
     for (let i = 0; i < totalPriceArray.length; i++) {
-      sum = sum + totalPriceArray[i];
+      sum += totalPriceArray[i];
+    }
+    for (let i = 0; i < totalPriceWithoutVatArray.length; i++) {
+      sumWithoutVat += totalPriceWithoutVatArray[i];
     }
     setTotalPrice(sum);
+    setTotalVat(sum - sumWithoutVat);
   }, [cart]);
 
   //useEffect for page reload for state update
@@ -71,12 +80,13 @@ const Checkout = () => {
         phone: input.user_phone,
       },
       calculation: {
-        price: 920,
-        vat: 89,
-        total: 1009,
+        price: totalPrice - totalVat,
+        vat: totalVat,
+        total: totalPrice,
       },
       items: cart.items.map((item) => item),
     };
+
     Array.from(document.querySelectorAll("input")).forEach(
       (input) => (input.value = "")
     );
@@ -84,15 +94,17 @@ const Checkout = () => {
     alert("Order has been placed");
 
     const response = await axios
-      .post("https://munchies-api.up.railway.app/order", data, {
+      .post("/munchies/order", data, {
         headers: {
           "x-access-user": `${input.user_email}`,
+          "Access-Control-Allow-Origin": "*",
         },
       })
       .then((response) => {
         console.log(response);
       })
       .catch((error) => {
+        console.log(error);
         setError(error);
       });
   };
@@ -129,12 +141,12 @@ const Checkout = () => {
               <Input
                 type="email"
                 placeholder="type your email here"
-                name={input.user_email}
+                name="user_email"
                 _focus={{
                   zIndex: "0",
                   borderColor: "#3182ce",
                 }}
-                // onChange={handleChange}
+                onChange={handleChange}
                 value={input.user_email}
               />
             </FormControl>
@@ -143,12 +155,12 @@ const Checkout = () => {
               <Input
                 type="text"
                 placeholder="type your name here"
-                name={input.user_name}
+                name="user_name"
                 _focus={{
                   zIndex: "0",
                   borderColor: "#3182ce",
                 }}
-                // onChange={handleChange}
+                onChange={handleChange}
                 value={input.user_name}
               />
             </FormControl>
@@ -159,13 +171,13 @@ const Checkout = () => {
                 <Input
                   type="text"
                   placeholder="type your address"
-                  name={input.user_address}
+                  name="user_address"
                   _focus={{
                     zIndex: "0",
                     borderColor: "#3182ce",
                   }}
                   value={input.user_address}
-                  //   onChange={handleChange}
+                  onChange={handleChange}
                   width="77%"
                 />
               </FormControl>
@@ -174,13 +186,13 @@ const Checkout = () => {
                 <Input
                   type="number"
                   placeholder="type your contact no"
-                  name={input.user_phone}
+                  name="user_phone"
                   _focus={{
                     zIndex: "0",
                     borderColor: "#3182ce",
                   }}
                   value={input.user_phone}
-                  //   onChange={handleChange}
+                  onChange={handleChange}
                 />
               </FormControl>
             </Box>
@@ -225,11 +237,19 @@ const Checkout = () => {
                       </Text>
                     </Box>
                     <Box>
-                      <Text>{item.total_price} BDT</Text>
+                      <Text>{item.quantity * item.price} BDT</Text>
                     </Box>
                   </Box>
                 );
               })}
+            </Box>
+            <Box display="flex" justifyContent="space-between" marginTop="10px">
+              <Box padding="1rem">
+                <Text fontWeight={700}>Vat(5%)</Text>
+              </Box>
+              <Box padding="1rem">
+                <Text fontWeight={700}>{totalVat.toFixed(2)} BDT</Text>
+              </Box>
             </Box>
             <Box display="flex" justifyContent="space-between" marginTop="10px">
               <Box padding="1rem">
@@ -248,7 +268,7 @@ const Checkout = () => {
               fontWeight="bold"
               type="submit"
               value="submit"
-              marginX="auto"
+              marginLeft="40%"
             >
               CONFIRM PURCHASE
             </Box>
