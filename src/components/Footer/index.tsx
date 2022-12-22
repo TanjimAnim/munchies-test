@@ -24,7 +24,7 @@ export default function Footer() {
           width="73%"
         >
           <Box id="munchies-logo" position="relative" zIndex={1}>
-            <Image src={whatToEatImage.src} width="128px" />
+            <Image src={whatToEatImage.src} width="128px" alt="" />
           </Box>
           <Box
             id="menu"
@@ -41,9 +41,9 @@ export default function Footer() {
             <Text>Contact</Text>
           </Box>
           <Box id="cart" display="flex" gap="16px">
-            <Image src={facebookImage.src} width="22px" height="22px" />
+            <Image src={facebookImage.src} width="22px" height="22px" alt="" />
 
-            <Image src={igImage.src} width="22px" height="22px" />
+            <Image src={igImage.src} width="22px" height="22px" alt="" />
           </Box>
         </Box>
         <Box paddingY="16px" display="flex" justifyContent="center">

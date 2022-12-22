@@ -45,28 +45,28 @@ export default function Blog() {
       >
         <Box>
           <Box>
-            <Image src={cake1.src} />
+            <Image src={cake1.src} alt="" />
             <Title />
           </Box>
 
           <Box>
-            <Image src={cake2.src} />
+            <Image src={cake2.src} alt="" />
             <Title />
           </Box>
         </Box>
         <Box>
           <Box>
-            <Image src={cake3.src} />
+            <Image src={cake3.src} alt="" />
             <Title />
           </Box>
         </Box>
         <Box>
           <Box>
-            <Image src={cake4.src} />
+            <Image src={cake4.src} alt="" />
             <Title />
           </Box>
           <Box>
-            <Image src={cake5.src} />
+            <Image src={cake5.src} alt="" />
             <Title />
           </Box>
         </Box>

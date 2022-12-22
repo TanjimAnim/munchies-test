@@ -54,7 +54,7 @@ export default function Contact() {
           </Box>
         </Box>
         <Box>
-          <Image src={FoodDeliveryImage.src} />
+          <Image src={FoodDeliveryImage.src} alt="" />
         </Box>
       </Box>
     </Box>
