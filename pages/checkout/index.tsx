@@ -93,7 +93,7 @@ const Checkout = () => {
     dispatch(clearCart());
     alert("Order has been placed");
 
-    const response = await axios
+    await axios
       .post("/munchies/order", data, {
         headers: {
           "x-access-user": `${input.user_email}`,
