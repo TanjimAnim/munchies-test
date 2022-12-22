@@ -127,7 +127,7 @@ const ShoppingCart = () => {
             color: "black",
           }}
         >
-          <Link href="#"> PROCEED TO CHECKOUT</Link>
+          <Link href="/checkout"> PROCEED TO CHECKOUT</Link>
         </Box>
       </Box>
     </>
