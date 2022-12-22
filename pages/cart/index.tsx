@@ -1,4 +1,4 @@
-import { Text, Box, IconButton, Image } from "@chakra-ui/react";
+import { Text, Box, IconButton, Image, Tooltip } from "@chakra-ui/react";
 import { CloseIcon } from "@chakra-ui/icons";
 import Link from "next/link";
 import { removeCart } from "../../src/features/slice";
@@ -51,61 +51,24 @@ const ShoppingCart = () => {
             return (
               <tr key={item.id}>
                 <td>
-                  <Image src={item.image} width="121px" height="118px" />
+                  <Image src={item.image} width="121px" height="118px" alt="" />
                 </td>
                 <td>{item.name}</td>
                 <td>{item.price} BDT</td>
-                {/* <td>
-                  <Box display='flex' border='solid 1px' width='108px'>
-                    <Button
-                      background='white'
-                      borderRadius='0'
-                      isDisabled={item.qty === 0 ? true : false}
-                      cursor='pointer'
-                      onClick={() => {
-                        dispatch({
-                          type: "DECREASE_CART_QTY",
-                          payload: {
-                            item,
-                            qty: item.qty - 1,
-                          },
-                        });
-                      }}
-                    >
-                      -
-                    </Button>
-                    <Box padding='0.5rem'>
-                      <Text>{item.qty}</Text>
-                    </Box>
-                    <Button
-                      background='white'
-                      borderRadius='0'
-                      cursor='pointer'
-                      onClick={() => {
-                        dispatch({
-                          type: "INCREASE_CART_QTY",
-                          payload: {
-                            item,
-                            qty: item.qty + 1,
-                          },
-                        });
-                      }}
-                    >
-                      +
-                    </Button>
-                  </Box>
-                </td> */}
+
                 <td>{item.quantity}</td>
                 <td>{item.total_price.toFixed(2)} BDT</td>
                 <td>
-                  <IconButton
-                    aria-label="remove item"
-                    icon={<CloseIcon />}
-                    onClick={() => {
-                      dispatch(removeCart(item.id));
-                    }}
-                    background="none"
-                  />
+                  <Tooltip label="remove item from cart">
+                    <IconButton
+                      aria-label="remove item"
+                      icon={<CloseIcon />}
+                      onClick={() => {
+                        dispatch(removeCart(item.id));
+                      }}
+                      background="none"
+                    />
+                  </Tooltip>
                 </td>
               </tr>
             );

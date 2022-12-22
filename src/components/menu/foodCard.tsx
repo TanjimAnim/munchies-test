@@ -1,4 +1,4 @@
-import { Box, chakra, Image, Text } from "@chakra-ui/react";
+import { Box, chakra, Image, Text, useToast, Tooltip } from "@chakra-ui/react";
 import { FoodType } from "../../../types";
 import { useGetAllProductsQuery } from "../../services/products";
 
@@ -20,7 +20,8 @@ export default function FoodCard() {
   const { isLoading, isError } = useGetAllProductsQuery("");
 
   const dispatch = useDispatch();
-  console.log(cart);
+  const toast = useToast();
+
   useEffect(() => {
     function handleVisibilityChange() {
       if (document.visibilityState === "visible") {
@@ -60,6 +61,7 @@ export default function FoodCard() {
                 width="277px"
                 height="250px"
                 borderRadius="10px 10px 0px 0px"
+                alt=""
               />
               <Box
                 background="white"
@@ -109,9 +111,22 @@ export default function FoodCard() {
                       50-79 min
                     </Box>
                   </Box>
-                  <Box as="button" onClick={() => dispatch(addToCart(item))}>
-                    <Image src={addToCartImage.src} />
-                  </Box>
+                  <Tooltip label="add to cart">
+                    <Box
+                      as="button"
+                      onClick={() => {
+                        dispatch(addToCart(item));
+                        toast({
+                          title: "Item Added",
+                          status: "success",
+                          duration: 2000,
+                          isClosable: true,
+                        });
+                      }}
+                    >
+                      <Image src={addToCartImage.src} alt="" />
+                    </Box>
+                  </Tooltip>
                 </Box>
               </Box>
             </Box>
