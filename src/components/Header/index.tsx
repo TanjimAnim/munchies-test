@@ -56,7 +56,7 @@ export default function Header() {
       </Box>
       <Box>
         {" "}
-        <Image src={guyImage.src} />
+        <Image src={guyImage.src} alt="" />
       </Box>
     </Box>
   );

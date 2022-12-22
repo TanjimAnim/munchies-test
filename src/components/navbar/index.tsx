@@ -28,7 +28,7 @@ export default function Navbar() {
       alignItems="center"
     >
       <Box id="munchies-logo" position="relative" zIndex={1}>
-        <Image src={munchiesLogoImage.src} width="128px" />
+        <Image src={munchiesLogoImage.src} width="128px" alt="" />
       </Box>
       <Box
         id="menu"
@@ -45,7 +45,7 @@ export default function Navbar() {
         <Text>Contact</Text>
       </Box>
       <Box id="cart" display="flex" gap="16px">
-        <Image src={searchImage.src} width="22px" height="22px" />
+        <Image src={searchImage.src} width="22px" height="22px" alt="" />
         <Link href="/cart">
           <Tooltip label="go to cart page">
             <Box position="relative">
