@@ -1,17 +1,22 @@
-import { Box, Image, Text } from "@chakra-ui/react";
+import { Box, Image, Link, Text, Tooltip } from "@chakra-ui/react";
 
 //import assets
 import munchiesLogoImage from "../../assets/munchiesLogo.png";
 import searchImage from "../../assets/search.png";
 import cardImage from "../../assets/card.png";
+import { useSelector } from "react-redux";
+import { RootState } from "../../app/store";
 
 const textStyle = {
   fontStyle: "normal",
   fontWeight: "700",
   fontSize: "16px",
+  cursor: "pointer",
 };
 
 export default function Navbar() {
+  const cart = useSelector((state: RootState) => state.cart);
+
   return (
     <Box
       display="flex"
@@ -41,8 +46,30 @@ export default function Navbar() {
       </Box>
       <Box id="cart" display="flex" gap="16px">
         <Image src={searchImage.src} width="22px" height="22px" />
-
-        <Image src={cardImage.src} width="22px" height="22px" />
+        <Link href="/cart">
+          <Tooltip label="go to cart page">
+            <Box position="relative">
+              <Image src={cardImage.src} width="22px" height="22px" alt="" />
+              {cart.items.length !== 0 ? (
+                <Box
+                  color="white"
+                  width="28px"
+                  borderRadius="50%"
+                  background="#F3BA00"
+                  position="absolute"
+                  top="-8px"
+                  left="19px"
+                  textAlign="center"
+                  fontWeight={700}
+                >
+                  {cart.items.length}
+                </Box>
+              ) : (
+                <Box></Box>
+              )}
+            </Box>
+          </Tooltip>
+        </Link>
       </Box>
     </Box>
   );
